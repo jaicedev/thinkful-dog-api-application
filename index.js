@@ -32,7 +32,7 @@ function getBreedOfDog(){
 }
 
 function showDogBreedImage(responseJson){
-    $('#js-dog-container').append(`<img src="${responseJson.message}" class="dog-image">`)
+        $('#js-dog-container').append(`<img src="${responseJson.message}" class="dog-image">`)
 }
 
 function showDogs(responseJson){
