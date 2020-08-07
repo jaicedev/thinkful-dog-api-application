@@ -1,0 +1,27 @@
+body, html {
+    text-align: center;
+}
+header{
+    margin-bottom: 2%;
+}
+form {
+    margin-bottom: 5%;
+}
+.image-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.dog-image {
+    height: 50%;
+    width: 50%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid gray;
+    margin: 1% 0;
+    box-shadow: 0 8px 6px -6px gray;
+}
