@@ -20,13 +20,19 @@ function getBreedOfDog(){
         let breedName = $('#js-dog-breed').val().toLowerCase()
         fetch(`https://dog.ceo/api/breed/${breedName}/images/random`)
             .then(response => response.json())
-            .then(responseJson =>
-                showDogBreedImage(responseJson))
-        .catch(error => alert('There Was an Error Processing your Request, Please Try Again!'))
+            .then(responseJson => {
+                if(responseJson.status === 'error'){
+                    console.log('Caught')
+                }else{
+                    showDogBreedImage(responseJson)
+                }
+            })
+            .catch(error => alert(error))
     })
 }
 
 function showDogBreedImage(responseJson){
+        console.log(responseJson.message)
         $('#js-dog-container').append(`<img src="${responseJson.message}" class="dog-image">`)
 }
 
