@@ -3,17 +3,12 @@ function getNumberOfDogImages(){
         $('#js-dog-container').html('');
         e.preventDefault();
         let checkNum = parseInt($('#js-dog-num').val());
-        if(typeof(checkNum) === 'number'){
-            fetch(`https://dog.ceo/api/breeds/image/random/${checkNum}`)
-                .then(response => response.json())
-                .then(responseJson =>
-                    showDogs(responseJson))
-                .catch(error => alert('There Was an Error Processing your Request, Please Try Again!'))
-            $('#js-dog-num').val('');
-        }else{
-            alert('Please Enter a Number')
-            $('#js-dog-num').val('');
-        }
+        fetch(`https://dog.ceo/api/breeds/image/random/${checkNum}`)
+            .then(response => response.json())
+            .then(responseJson =>
+                showDogs(responseJson))
+        .catch(error => alert('There Was an Error Processing your Request, Please Try Again!'))
+        $('#js-dog-num').val('');
         
     })
 }
@@ -27,7 +22,7 @@ function getBreedOfDog(){
             .then(response => response.json())
             .then(responseJson =>
                 showDogBreedImage(responseJson))
-            .catch(error => alert('There Was an Error Processing your Request, Please Try Again!'))
+        .catch(error => alert('There Was an Error Processing your Request, Please Try Again!'))
     })
 }
 
