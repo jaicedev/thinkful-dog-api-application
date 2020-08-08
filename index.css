@@ -1,5 +1,6 @@
 body, html {
     text-align: center;
+    font-family: monospace;
 }
 header{
     margin-bottom: 2%;
@@ -24,4 +25,18 @@ form {
     border: 3px solid gray;
     margin: 1% 0;
     box-shadow: 0 8px 6px -6px gray;
+}
+
+.submit {
+    color: black;
+    border-style: none;
+    height: 2rem;
+}
+.submit:hover {
+    color: white;
+    background: gray;
+    cursor: pointer;
+}
+.dog-breed, .dog-number {
+    height: 1.5rem;
 }

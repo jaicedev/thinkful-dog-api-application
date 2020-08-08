@@ -2,7 +2,7 @@ function getNumberOfDogImages(){
     $('#js-dog-form').submit(function (e){
         $('#js-dog-container').html('');
         e.preventDefault();
-        let checkNum = parseInt($('#js-dog-num').val());
+        let checkNum = $('#js-dog-num').val();
         fetch(`https://dog.ceo/api/breeds/image/random/${checkNum}`)
             .then(response => response.json())
             .then(responseJson =>
