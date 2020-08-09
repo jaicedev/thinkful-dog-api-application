@@ -1,13 +1,13 @@
 function getNumberOfDogImages(){
     $('#js-dog-form').submit(function (e){
-        $('#js-dog-container').html('');
         e.preventDefault();
         let checkNum = parseInt($('#js-dog-num').val());
         if(checkNum >= 1 && checkNum <= 50){
-            checkNum = checkNum;
+            $('#js-dog-container').html(`<h3 class="sub-title">${checkNum} Random Dog Images:</h3>`);
         }
         else{
             checkNum = 3;
+            $('#js-dog-container').html(`<h3 class="sub-title">${checkNum} Dog Images:</h3>`);
             console.log('Invalid Input Given - Fetching Default')
         }
         fetch(`https://dog.ceo/api/breeds/image/random/${checkNum}`)
@@ -23,7 +23,6 @@ function getNumberOfDogImages(){
 function getBreedOfDog(){
     $('#js-dog-form-breed').submit(function(e){
         e.preventDefault()
-        $('#js-dog-container').html('');
         let breedName = $('#js-dog-breed').val().toLowerCase()
         fetch(`https://dog.ceo/api/breed/${breedName}/images/random`)
             .then(response => response.json())
@@ -33,6 +32,7 @@ function getBreedOfDog(){
                     console.log('Invalid Input - Try Again Please')
                     $('#js-dog-breed').val('')
                 }else{
+                    $('#js-dog-container').html(`<h3 class="sub-title">Random ${$('#js-dog-breed').val()} Image:</h3>`);
                     showDogBreedImage(responseJson)
                 }
             })
@@ -55,10 +55,6 @@ function showDogs(responseJson){
         $('#js-dog-container').append(`<img src="${responseJson.message[i]}" class="dog-image">`)
     }
 }
-
-$(function(){
-    $('#js-dog-container').hide();
-})
 
 $(getBreedOfDog);
 $(getNumberOfDogImages);
